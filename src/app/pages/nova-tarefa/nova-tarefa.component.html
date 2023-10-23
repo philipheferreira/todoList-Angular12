@@ -1,0 +1,25 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-control nzErrorTip="Por favor informar Tarefa">
+     
+        <input formControlName="tarefa" nz-input placeholder="Tarefa" />
+  
+    </nz-form-control>
+    <nz-form-control nzErrorTip="Por favor informar CPF">
+
+        <input formControlName="cpf" nz-input type="text" placeholder="CPF" />
+  
+    </nz-form-control>
+    <nz-form-control nzErrorTip="Por favor informar o responsável">
+
+      <input formControlName="responsavel" nz-input type="text" placeholder="Responsável" />
+
+  </nz-form-control>
+  <nz-form-control nzErrorTip="Por favor informar o prazo de entrega">
+
+    <input formControlName="prazoDeEntrega" nz-input type="date" placeholder="Prazo de Entrega" />
+
+</nz-form-control>
+    <nz-form-control>
+      <button nz-button nzType="primary" [disabled]="!validateForm.valid">Adicionar nova tarefa</button>
+    </nz-form-control>
+</form>

@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TarefaListaComponent } from './list.component';
+import { TarefaListaComponent } from './tarefa-lista.component';
 
-describe('ListComponent', () => {
+describe('TarefaListaComponent', () => {
   let component: TarefaListaComponent;
   let fixture: ComponentFixture<TarefaListaComponent>;
 

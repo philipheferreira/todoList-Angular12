@@ -1,0 +1,53 @@
+<div>tarefa lista works!!</div>
+
+<div class="table-operations">
+   <button nz-button (click)="sortByCpf()">Sort CPF</button>
+   <button nz-button (click)="resetFilters()">Clear filters</button>
+   <button nz-button (click)="resetSortAndFilters()">Clear filters and sorters</button>
+ </div>
+ <nz-table #filterTable [nzData]="listOfData" nzTableLayout="fixed">
+   <thead>
+     <tr>
+       <th [nzChecked]="checked" (nzCheckedChange)="onAllChecked($event)"></th>
+       <th
+         *ngFor="let column of listOfColumns; trackBy: trackByName"
+         [(nzSortOrder)]="column.sortOrder"
+         [nzSortFn]="column.sortFn"
+         [nzFilters]="column.listOfFilter"
+         [nzFilterFn]="column.filterFn"
+       >
+         {{ column.name }}
+       </th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let data of filterTable.data;">
+      <td [nzChecked]="isChecked(data.id)" (nzCheckedChange)="check(data.id)"></td>
+       <td>{{ data.tarefa }}</td>
+       <td>{{ formatarCpf(data.cpf)  }}</td>
+       <td>{{ data.responsavel }}</td>
+       <td>{{ data.prazoDeEntrega}}</td>
+       <td>
+        <div *ngIf="isChecked(data.id); else statusLabel">concluido</div>
+        <ng-template #statusLabel>
+          <div *ngIf="isOpen(data.prazoDeEntrega)">Aberto</div>
+          <div *ngIf="!isOpen(data.prazoDeEntrega)">expirado</div> 
+        </ng-template>
+
+      </td>
+     </tr>
+   </tbody>
+ </nz-table>
+
+<!-- <h2>To-Do List</h2>
+<ul>
+ <li *ngFor="let item of toDoItems; index as i">
+    {{ item }}
+    <button (click)="removeItem(i)">Remove</button>
+ </li>
+</ul>
+<form (submit)="addItem()">
+   {{text}}
+ <input name="txt" type="text" placeholder="Enter new task" [(ngModel)]="text"/>
+ <button type="submit">Add</button>
+</form> -->

@@ -1,3 +1,4 @@
+import 'zone.js/dist/zone';  // Import 'zone.js'
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';

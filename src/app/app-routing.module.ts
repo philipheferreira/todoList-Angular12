@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { TarefaListaComponent } from './pages/tarefas/components/tarefa-lista/tarefa-lista.component';
+import { TarefasComponent } from './pages/tarefas/tarefas.component';
+import { NovaTarefaComponent } from './pages/nova-tarefa/nova-tarefa.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/tarefas' },
+  { path: 'tarefas', component: TarefasComponent},
+  { path: 'nova-tarefa', component:NovaTarefaComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
